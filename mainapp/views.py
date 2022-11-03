@@ -22,16 +22,16 @@ class AboutUs(TemplateView):
 
 
 class Contact(TemplateView):
-    template_name = "mainapp/contact.html/"
+    template_name = "mainapp/contacts.html/"
 
 
-class News(TemplateView):
-    template_name = "mainapp/news.html/"
+# class News(TemplateView):
+#     template_name = "mainapp/news.html/"
 
 
-class Rooms(TemplateView):
-    template_name = "mainapp/rooms.html/"
+class Courses_list(TemplateView):
+    template_name = "mainapp/courses_list.html/"
 
 
-class Services(TemplateView):
-    template_name = "mainapp/services.html/"
+class Doc_site(TemplateView):
+    template_name = "mainapp/doc_site.html/"
