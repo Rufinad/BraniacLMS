@@ -1,10 +1,26 @@
-from django.http import HttpResponse
-from django.views import View
+from django.views.generic import TemplateView
 
 
-class HelloWorldView(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('Hello world')
+class MainPageview(TemplateView):
+    template_name = 'mainapp/index.html/'
 
-def check_kwargs(request, **kwargs):
-    return HttpResponse(f"kwargs:<br>{kwargs}")
+
+class AboutUs(TemplateView):
+    template_name = 'mainapp/about-us.html/'
+
+
+class Contact(TemplateView):
+    template_name = 'mainapp/contact.html/'
+
+
+class News(TemplateView):
+    template_name = 'mainapp/news.html/'
+
+
+class Rooms(TemplateView):
+    template_name = 'mainapp/rooms.html/'
+
+
+class Services(TemplateView):
+    template_name = 'mainapp/services.html/'
+
