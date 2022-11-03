@@ -13,6 +13,4 @@ urlpatterns = [
     path("news.html/", views.News.as_view()),
     path("rooms.html/", views.Rooms.as_view()),
     path("services.html/", views.Services.as_view()),
-
-    
 ]
