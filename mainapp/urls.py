@@ -6,11 +6,11 @@ from mainapp.apps import MainappConfig
 app_name = MainappConfig.name
 
 urlpatterns = [
-    path("", views.MainPageview.as_view()),
-    path("index.html/", views.MainPageview.as_view()),
-    path("about-us.html/", views.AboutUs.as_view()),
-    path("contact.html/", views.Contact.as_view()),
-    path("news.html/", views.News.as_view()),
-    path("rooms.html/", views.Rooms.as_view()),
-    path("services.html/", views.Services.as_view()),
+    path("", views.MainPageView.as_view(), name="main_page"),
+    path("news/", views.NewsPageView.as_view(), name="news"),
+    path("news/<int:page>/", views.NewsWithPaginatorView.as_view(), name="news_paginator"),
+    path("courses/", views.CoursesPageView.as_view(), name="courses"),
+    path("contacts/", views.ContactsPageView.as_view(), name="contacts"),
+    path("doc_site/", views.DocSitePageView.as_view(), name="doc_site"),
+    path("login/", views.LoginPageView.as_view(), name="login"),
 ]

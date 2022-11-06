@@ -1,31 +1,44 @@
-<<<<<<< HEAD
-from django.shortcuts import render
+from datetime import datetime
 
-# Create your views here.
-=======
 from django.views.generic import TemplateView
 
 
-class MainPageview(TemplateView):
-    template_name = "mainapp/index.html/"
+class MainPageView(TemplateView):
+    template_name = "mainapp/index.html"
 
 
-class AboutUs(TemplateView):
-    template_name = "mainapp/about-us.html/"
+class NewsPageView(TemplateView):
+    template_name = "mainapp/news.html"
+
+    def get_context_data(self, **kwargs):
+        # Get all previous data
+        context = super().get_context_data(**kwargs)
+        # Create your own data
+        context["news_title"] = "Громкий новостной заголовок"
+        context["news_preview"] = "Предварительное описание, которое заинтересует каждого"
+        context["range"] = range(5)
+        context["datetime_obj"] = datetime.now()
+        return context
 
 
-class Contact(TemplateView):
-    template_name = "mainapp/contact.html/"
+class NewsWithPaginatorView(NewsPageView):
+    def get_context_data(self, page, **kwargs):
+        context = super().get_context_data(page=page, **kwargs)
+        context["page_num"] = page
+        return context
 
 
-class News(TemplateView):
-    template_name = "mainapp/news.html/"
+class CoursesPageView(TemplateView):
+    template_name = "mainapp/courses_list.html"
 
 
-class Rooms(TemplateView):
-    template_name = "mainapp/rooms.html/"
+class ContactsPageView(TemplateView):
+    template_name = "mainapp/contacts.html"
 
 
-class Services(TemplateView):
-    template_name = "mainapp/services.html/"
->>>>>>> b13309c0958af968b4ece0ec77164443d9e852c4
+class DocSitePageView(TemplateView):
+    template_name = "mainapp/doc_site.html"
+
+
+class LoginPageView(TemplateView):
+    template_name = "mainapp/login.html"
